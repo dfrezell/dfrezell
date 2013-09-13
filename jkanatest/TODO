@@ -1,0 +1,6 @@
+- Test and make work with Java 1.2.1, currently only run with 1.4, due to using
+java.util.preferences.
+- Keep track of stats!!!
+- Enable the repeat wrong answer's.
+- Add preference for user to set the time the wrong answer is displayed.
+- ... Many, many more.  Will add as I think of them.

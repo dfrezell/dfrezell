@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>signup</title>
+		<style type="text/css">
+			body {
+				font-family: sans-serif;
+				width: 800px;
+				margin: 0 auto;
+				padding: 10px;
+			}
+			.error {
+				color: red;
+			}
+			.form label {
+				width:7.5em;
+				float:left;
+				display:block;
+				margin-right:0.5em;
+				text-align:right;
+				font-size: 20px;
+			}
+			.form .submit input {
+				margin-left:6.5em;
+			}
+			.form input[type=text] {
+				width: 350px;
+				font-size: 20px;
+			}
+			.form input[type=password] {
+				width: 350px;
+				font-size: 20px;
+			}
+		</style>
+	</head>
+
+    <body>
+		<h3>CS253: Unit 4 - Signup</h3>
+		<form class="form" method="post">
+			<p>
+			<label>Username</label>
+			<input type="text" value="{{user.name}}" name="username">
+			<span class="error">{{error.name}}</span>
+			</p>
+			<p>
+			<label>Password</label>
+			<input type="password" value="" name="password">
+			<span class="error">{{error.pw}}</span>
+			</p>
+			<p>
+			<label>Verify Password</label>
+			<input type="password" value="" name="verify">
+			<span class="error">{{error.verify}}</span>
+			</p>
+			<p>
+			<label>Email (optional)</label>
+			<input type="text" value="{{user.email}}" name="email">
+			<span class="error">{{error.email}}</span>
+			</p>
+			<p class="submit"><input type="submit"></p>
+		</form>
+    </body>
+</html>

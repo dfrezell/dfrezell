@@ -1,0 +1,5 @@
+- Make the game network playable.
+- Keep track of bids and such
+- Add the rebound walls in the game and check for them when moving the robot.
+- Possibly put in markers to indicate the original robot position.
+- Many, many more as I think of them.

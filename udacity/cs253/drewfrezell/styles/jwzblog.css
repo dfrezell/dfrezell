@@ -1,0 +1,411 @@
+/* CSS to turn the "Weaver 2010" WordPress theme into teh jwz hotness.
+   This sure is a lot of work.
+ */
+
+
+/* my one custom class used in posts, specially handled in jwzhacks.php */
+blockquote.cite {
+  margin-left: 1em;  border-left: 2px solid;
+  padding-left: 1em; padding-right: 0;
+}
+
+/* Do the same thing for regular blockquotes inside comments */
+#comments blockquote {
+  margin-left: 1em;  border-left: 2px solid;
+  padding-left: 1em; padding-right: 0;
+}
+
+
+/* top nav bar */
+
+#ttw-top-widget { display: none; }  /* only for thin windows, see below */
+
+#access .menu-header ul {
+  padding: 0: margin: 0 auto 1em auto; text-align: center; }
+#access .menu li { display: inline; float: none; }
+#access .menu li a:hover { color: #000; background: #080; }
+
+#access a, #access2 a {
+  display: inline-block;
+  list-style-type: none;
+  white-space: nowrap;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 9pt;
+  line-height: 11pt;
+  color: #0F0;
+  background: #040;
+  border: 1px solid #080;
+  min-width: 15%;
+  padding: 0 0.2em;
+  margin: 0 0 0.3em 0;
+}
+
+#access ul li.current_page_item > a,
+#access ul li.current-menu-ancestor > a,
+#access ul li.current-menu-item > a,
+#access ul li.current-menu-parent > a { color: #0F0; }
+
+
+/* main document */
+
+blockquote { font-style: inherit !important; }
+blockquote i { font-style: italic !important; }  /* wtf */
+blockquote { margin-top: 1em; margin-bottom: 1em; } /* wtf */
+#comments .comment-body blockquote p:last-child { margin-bottom: 0; } /* wtf */
+
+
+/* I'm just cooler than you. */
+.comment-author-jwz > div > .comment-body   { color: #AFA; }
+.comment-author-jwz > div > .comment-author { color: #CFC;
+  border-color: #080; background: #040; }
+.comment-author-jwz > div > .comment-body blockquote { color: #0F0; }
+
+
+/* Instead of being a hardcoded size, make the page reflow (within reason).
+ */
+#access, #access2 { width: 100%; }
+#access .menu-header, #access2 .menu-header, div.menu, #colophon,
+#branding, #main, #wrapper {
+  width: auto;
+  /* default is around 64em */
+  min-width: 45em;
+  max-width: 75em;
+}
+#access .menu-header, #access2 .menu-header, div.menu {
+  width: 100%; max-width: 100%; margin: 0 0 1em 0;
+}
+
+
+#content {
+  width: auto; 
+  margin-right: 230px;
+}
+
+/* Shrink the margins */
+#wrapper { padding-left: 0; padding-right: 0; }
+#content { padding-left: 1em; margin-left: 0; }
+
+a:link, a:hover, a:visited, a:active, .widget-area a:active,
+ .widget-area a:hover { text-decoration: none; }
+#primary a:hover, #main a:hover { color: #FFF !important; }
+hr { color: #0D0; background: #0D0; height: 2px; border:0; clear: none; }
+
+body, input, textarea, #content, #content input, #content textarea {
+ font-size: 11pt; line-height: 15pt; }
+pre, tt, code {
+  font-family: "Bitstream Vera Sans Mono", Menlo, "Courier New", Courier,
+    monospace;
+  font-size:10pt; background:transparent; color:inherit; }
+#site-info { display: none; }
+.entry-utility .meta-sep { padding: 0 0.5em; }
+.entry-utility-prep { padding-right: 0.5em; }
+
+.widget-container { font-size: 9pt; line-height: 11pt; }
+#wp-calendar tbody { color: #080; }
+#wp-calendar tbody td { background: transparent; border: 1px solid #040; }
+.widget_calendar .widget-title { display: none; }
+.widget-title, #wp-calendar caption {
+ text-align: center; background: #040; border: 1px solid #080;
+ padding: 0.2em; margin-bottom: 0.5em; }
+
+/* Don't display categories at all. (they still show up on calendar and
+   search pages). */
+.cat-links, .cat-links + .meta-sep { display: none; }
+.comments-link { white-space: nowrap; }
+
+.hentry { margin: 0 0 2em 0; padding: 0; border: 1px solid #040; }
+#content .entry-title { padding: 0.25em 0.5em; background: #040;
+   line-height: 1.1em;}
+.entry-meta { padding: 0.25em 1em; margin-bottom: 1em;
+  border-bottom: 1px solid #040; background: #020; }
+.entry-content { padding: 0 1em 1em 1em; }
+.entry-utility { padding: 0.25em 1em; border-top: 1px solid #040;
+  background: #020; }
+
+#nav-below { padding: 0.25em 1em; border: 1px solid #040;
+  background: #020; margin-bottom: 2em; }
+.single .hentry { margin-bottom: 4em; }
+#colophon { display: none; }
+
+#content p, #content ul, #content ol, #content dd, #content pre, #content hr {
+ margin-bottom: 0; }
+#content pre, #content tt, #content code {
+ font-size: 10pt; line-height: normal; }
+#content pre { margin: 0; padding: 0; }
+#content p, #content hr { margin: 0.7em 0; }
+.comment-meta { margin-bottom: 0.5em; }
+
+/* I want to specify none of this, but other CSS files have set them and
+   there is no way to un-set them.  This sucks because it means that doing
+   <IMG BORDER=0> in the HTML source doesn't work.
+ */
+.entry-content img { border: 1px solid; }
+.entry-content img[border="0"] { border: 0; }
+#content img { margin: 2px; }
+#content img[align="left"] { margin-right: 1em; }
+#content img[align="right"] { margin-left: 1em; }
+
+.page-title span { color: #FFF; }
+
+#header { padding: 0; }
+#content { padding-top: 0; }
+.xoxo { margin-top: 0 !important; }
+#primary { padding-top: 0; }
+.widget_text { margin: 0; }
+
+#primary .textwidget { float: right; padding-bottom: 2em; }
+
+#ttw-top-widget { display: none; padding: 0; margin: 0; width: 100%; 
+ text-align: center; }
+/*#ttw-top-widget .widget_search { float: left; margin-left: 1em; }*/
+#ttw-top-widget .widget_search #s {
+/*  display: block;*/
+/*  width: 10em;*/
+/*  margin-bottom: 0.5em;*/
+}
+
+/* WTF! something's fucking up *all* tables in the body! */
+#content table { border: 0;  width: auto; }
+#content tr td { border: 0; padding: 0; }
+/*#content tr { vertical-align: middle !important; }*/
+#content td[valign="bottom"] { vertical-align: bottom !important; }
+#content td[valign="top"]    { vertical-align: top    !important; }
+#content td[valign="middle"] { vertical-align: middle !important; }
+
+#content dt, #content th { color: inherit; }
+dl { margin: 0; }
+dd, ol, ul { margin: 0 0 0 40px; }
+
+/* Truncate lines in the "Recent Entries" and "Comments" widgets.
+ */
+.widget_recent_entries  li,
+.widget_recent_comments li {
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  list-style-position: inside;
+}
+.widget_recent_entries  ul, .widget_recent_comments ul {
+  margin-left: 4px !important; }
+
+
+/*
+.widget_archive    { text-align:center; }
+.widget_archive ul { text-align:left; display:inline-block; margin:auto; }
+*/
+.widget_archive ul { margin-left: 4em !important; }
+
+.widget-container { margin-bottom: 2em; }
+
+
+/* iPad gets confused about the IMG tags inside Youtube OBJECTs. */
+object { display: block; overflow: hidden; }
+
+
+/* Rocket surgery to make embedded Youtube videos scale fluidly while
+   preserving their aspect ratio, and flow inline like images.
+   It takes two DIVs around the IFRAME to make this work: one to
+   set the aspect, and one to float and size that within the parent.
+ */
+.video_floater {
+  display: inline-block; margin: 2px; width: 100%;
+}
+.video_frame {
+  overflow: hidden;
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  padding-top: 30px;      /* plus fixed height Youtube controls */
+  border: 1px solid #080;
+  background: #000;
+}
+.video_embed {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  border: 0; margin: 0; padding: 0;
+}
+
+
+/* comments */
+
+
+#comments { font-size: 10pt; line-height: 13pt; }
+.commentlist li.comment { border: 0; margin: 0; line-height: inherit; }
+#comments-title { display: none; }
+#reply-title { display: none; }
+.comment-author {
+ padding: 0.25em 1em; border: 1px solid #040; background: #020; }
+.avatar { border: 1px solid #040; }
+.commentlist .avatar { top: -2px; }
+
+/* do not let people post wide images or embeds in comments */
+#comments img { max-width: 400px; max-height: auto; }
+#comments object, #comments embed { max-width: 400px; max-height: 300px; }
+#comments object, #comments embed { border: 1px solid; }
+
+/* do not let people be dumb with PRE in comments */
+#comments pre { font-size: 8pt; max-width: 450px; overflow: auto; }
+
+#content textarea,
+#content input[type=text],
+#content input[type=submit],
+.widget-area input[type=text],
+.widget-area input[type=submit] {
+  color: #0F0; background: #333; border-color: #080;
+  -webkit-appearance: none;
+  border-radius: 0;
+  line-height: 15pt; /* redundant, needed for iPad */
+}
+#content input[type=submit],
+.widget-area input[type=submit] {
+  background: #040;
+}
+
+.home .sticky, #entry-author-info {
+ border-top: 2px dotted #0F0; border-bottom: 2px dotted #0F0;}
+
+#alt-login-methods { position: absolute; right: 0; z-index: 1;
+ white-space: nowrap; }
+#alt-login-methods > p { margin: 0 2px 6px 0; text-align: right; }
+.comment-form-author, .comment-form-email, .comment-form-url {
+ position: relative; line-height: 1.5em; }
+.comment-form-author input[type=text],
+.comment-form-email input[type=text],
+.comment-form-url input[type=text] {
+  max-width: 50%; position: absolute; left: 4em; }
+#openid_comment { position: absolute; top: -1em; right: -1em;
+  background: #000; }
+.comment-form-url > label:after {
+ position: absolute; right: 4px; content:"Or use your OpenID URL";
+ padding-left: 2em;
+ background-color: #000;
+ background-image: url('/images/openid16.png');
+ background-position: 3px 50%;
+ background-repeat: no-repeat; 
+ z-index: 1;
+}
+
+#comments .pingback {
+  border: 1px solid #040; background: #020;
+  padding: 0.25em 1em;
+  margin: 1em 0 2em 0;
+}
+#comments .pingback p { color: #080; font-size: smaller; }
+#comments .pingback .url { font-size: inherit; }
+
+
+#openid_enabled_link, .openid_link, #openid_identifier,
+#commentform #openid_identifier {
+ background-image: url('/images/openid16.png');
+}
+
+/* Leave OpenID icons off the sidebar */
+.widget-area .openid_link { 
+  background-image: none !important; padding-left: 0 !important; }
+
+ins {background:#666;}
+
+
+/* Tighten up the spacing on threadded replies */
+
+.commentlist li.comment { padding-left: 0; margin-top: 1em; }
+.comment-author { margin-left: 56px; }
+.comment-meta   { margin-left: 56px; padding: 0.25em 0 0 1em; }
+
+.commentlist .comment-body,
+.commentlist .reply { margin-left: 1em; padding-bottom: 0; }
+
+#content .commentlist ul.children {
+  margin:       0 0 1em 1em;
+  padding-left: 1em;
+  border-left:  1px dashed #040; 
+  border-bottom-left-radius: 6em;
+}
+
+/* Live Comment Preview plugin */
+
+#commentPreview .commentlist { margin-top: 0 !important; }
+#commentPreview {
+  background: #020; padding: 0.5em;
+  min-height: 2em;
+  border: 1px solid #0D0;
+  border-bottom-left-radius: 1.2em 2.6em;
+}
+#commentPreview cite:before {
+  content: "Comment Preview -- "; font-weight: bold; }
+#commentPreview .reply { display: none; }
+#commentPreview .comment-meta { display: none; }
+#commentPreview .comment-author { margin-bottom: 2em;
+ background: #040; border-color: #060; }
+
+
+/* posting responses */
+
+#respond { border-top: 1px solid #0F0; }
+#respond .required { color: #F00; }
+#respond .form-allowed-tags { color: #080; }
+#respond label { margin-left: 0.5em; }
+#respond abbr { border: none; }
+
+#respond .form-allowed-tags,
+#respond .form-allowed-tags code { font-size:  9pt; line-height: 11pt;
+  -webkit-text-size-adjust: none !important; }
+
+
+/* Better to overflow the page than have buttons overlap fields? */
+#respond { min-width: 36em; }
+
+
+
+/* Facebook and Google+ */
+#content .entry-title { padding-right: 100px; }
+.likers { width: 90px; float: right;
+          overflow: hidden;
+          position: relative; left: 0.85em; top: -2.5em; }
+.likers p { margin: 0 !important; }
+.likers .plusonebox { margin-left: 15px; }
+
+//.fb-like { margin: 0 !important; float: right; }
+#fb-user a.FB_Link img { margin-right: 2em; border: 1px solid #040; }
+#comments a.FB_Link { color: #0DF !important; }
+#comments a.FB_Link:visited { color: #AD0 !important; }
+#comments a.FB_Link:active { color: #F63 !important; }
+#comments a.FB_Link:hover { color: #FFF !important; }
+#fb-user { border: 1px solid #080 !important; height: 110px !important; }
+
+/* My custom /blog/tag/ page */
+
+.jwz-taglist { display: inline-block; text-align: left; margin: 1em; }
+
+
+/* Shrink margins and nav-menu fonts in smaller windows.
+ */
+@media screen and (max-width: 980px) {    /* iPad-ish */
+  .widget_search #s { width: 55%; }
+  .widget_search { -webkit-text-size-adjust: none !important; } /* WTF */
+  #respond .form-allowed-tags code { color: #0A0; }
+}
+
+
+@media screen and (max-width: 780px) {
+  #content { margin-right: 180px; padding-left: 0; margin-left: 0; }
+  #primary, #secondary { width: 180px; }
+  .entry-content { padding: 2px 2px 1em 2px; }
+  .widget-container, input, textarea { font-size: 8pt; line-height: 10pt; }
+  .widget_archive ul { margin-left: 2.5em !important; }
+}
+
+@media screen and (max-width: 720px) {
+  #content { margin-right: 140px; }
+  #primary, #secondary { width: 140px; }
+  .widget-container, input, textarea { font-size: 7pt; line-height: 8pt; }
+  #access a, #access2 a { font-size: 7pt; }
+}
+
+@media screen and (max-width: 660px) {	/* iPhone-ish. Omit right column. */
+  #ttw-top-widget { display: block; }
+  #content { margin-right: 1px; padding-right: 0; }
+  #primary, #secondary { display: none; }
+  #branding, #main, #wrapper, #respond { min-width: 10em; }
+  .entry-utility { font-size: 8pt; line-height: 1.2em; }
+  .likers { top: -2.2em; }
+  #access .menu-header, #access2 .menu-header { min-width: 0; }
+}

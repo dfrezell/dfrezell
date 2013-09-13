@@ -1,0 +1,19 @@
+I recently, July 24 2003, started to learn Japanese.  I'm taking a night
+course offered by a local college.  In order to facilitate learning Hiragana
+and Katakana, I did a quick search on the internet and found this site:
+<http://clay.ll.pl/kanatest.html>.  A simple, easy program to train with.
+So, I downloaded, compiled and ran...everything was good.  The problem was,
+supporting GTK+ apps under Windows and MacOS X is a pain in the ass.  I have
+a Mac laptop, so my goal was to write a cross-platform program that does
+the same thing.  Hence, we have Kana Test...I'm going to change the name
+when I get around to it, maybe something clever like JKana Test.  Anyways,
+It's in the same spirit as the original, even using the same images when
+the user doesn't have Japanese fonts installed.  Well, the name is now
+officially changed to...[drumroll]...JKana Test.
+
+This program is released under the MIT license, which basically boils down
+to:  Do whatever the hell you want with it, just mention me if you use it.
+
+Let me know if you enjoy the program or if you find a bug.
+
+Drew <dfrezell@speakeasy.net>

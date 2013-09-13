@@ -1,0 +1,6 @@
+Main-Class: org.frezell.japanese.JKanaTest
+Implementation-Title: JKana Test
+Implementation-Version: 0.0.5
+Implementation-Vendor: Drew Frezell
+Implementation-URL: http://www.frezell.org/japanese/
+

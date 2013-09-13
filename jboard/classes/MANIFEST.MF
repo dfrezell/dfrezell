@@ -1,0 +1,7 @@
+Main-Class: org.frezell.jboard.JBoard
+Class-Path: util.jar
+Implementation-Title: JBoard
+Implementation-Version: 0.0.1
+Implementation-Vendor: Drew Frezell
+Implementation-URL: http://www.frezell.org/chess/
+

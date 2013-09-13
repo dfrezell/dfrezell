@@ -1,0 +1,84 @@
+# dd-mm-yyyy name <email>
+22-08-2004 Andrew Frezell <dfrezell@speakeasy.net>
+    - Set the name of the bid textfield so it can be identified by action
+    listeners.
+    - Add the GameState as an ActionListener to the bid text field.
+
+22-08-2004 Andrew Frezell <dfrezell@speakeasy.net>
+    - Add generic param to the GameStatusEvent.  This will be used to pass the
+    number of moves it took to complete a puzzle and such.
+    - Use new stat panel graphic provided by Cory.
+    - Created an ImageButton class, cause I keep forgetting the fields I need
+    to set to make a button that is just an image.
+
+12-08-2004 Andrew Frezell <dfrezell@speakeasy.net>
+    - Fix bug with being able to move in the opposite direction it came from.
+    - Add one level of undo/redo, with the capability of doing multiple levels
+    of undo/redo.
+    - Moved the current target to the GameState, instead of the Board.  Keeping
+    all game specific things in the State, not spread around.
+    - Added a new GameStatusEvent: target picked.
+
+12-08-2004 Andrew Frezell <dfrezell@speakeasy.net>
+    - Add preferences dialog, used to set black robot and catchup rule.
+    - Moved the preferences strings to a class called Prefs.
+    - Now use RandomLib for distributing the robots on the board.  Still need
+    to change it so it doesn't loop when we get a bad square.
+
+12-08-2004 Andrew Frezell <dfrezell@speakeasy.net>
+    - Add game checking to see if the person has reached their target.
+    - Trying to cleanup some random code.
+    - Added new GameStatusEvent codes, a target reached and target not reached.
+    Currently only firing the target reached message.
+    - Change Board so it listens to GameStatusEvents, this is how the reset
+    is handled now.
+    - Also changed Board so it listens to MoveEvents, this was done so we
+    can be sure that the robots positions will be updated before checking
+    if we reached the target.  This was causing a minor bug where you reset
+    after hitting the target and the target hitting robot was moving back one
+    space.  This happened since we updated the robots home positions before we
+    had a chance to let the Board update the robots new position.
+    - Rearranged code so that override public methods appear after private
+    messages.  the overrides should appear at the bottom.
+    - Added function to see if a robot is a valid target condition in Target.
+    This is used to test for end of path conditions.
+    - Add accelerator keys to the menu.
+
+11-08-2004 Andrew Frezell <dfrezell@speakeasy.net>
+    - Add game stat panel to the top of the board.  This keeps tracks of the
+    number of robot moves made.
+    - Change the layout of the main window to be a BorderLayout to make it
+    easy to add the StatPanel
+    - Fix bug that caused the robot not to be able to move the opposite
+    direction of the last move, even though the game was reset.  Basically
+    I forgot to set the m_lastMove = null in the GameState.
+    - Add GameStatus[Event/Listener], this will allow others to get notified
+    of a game reset or new game condition.  We do this to allow the StatPanel
+    to reset the count of robot moves.
+    - Add a randomizeList function to the RandomLib.  This will allow us to
+    shuffle our targets and various other things.
+    - When user presses pick target button, display the target on the center
+    tile.
+    - Have the board keep track of all the targets in an array.  When we set
+    what the current target is, we use an index in the target array.
+
+10-08-2004 Andrew Frezell <dfrezell@speakeasy.net>
+	- Add the move history, basically a Vector that keeps all the moves, this
+	will allow undo in future versions.  Currently their is no bounds placed
+	on the history vector, it should be cleared after each successfule attempt
+	in the later games.
+	- Add check to prevent the robot from moving one direction and moving the
+	opposite direction immediately, the robot can only move left or right after
+	he has moved.
+	- Cleanup the scaling code for the images, this is done in a central
+	location with the other code calling the GraphicsUtils.
+	- Added drawing the robot path, took a first swipe and there are some major
+	issues.  Will need to think of a better approach.
+	- Added reset to the game which restores the board to original position.
+
+09-08-2004 Andrew Frezell <dfrezell@speakeasy.net>
+    - Dicked around with the randomize of the panels, spent way too much time
+    just to fall back on the normal way.
+
+08-08-2004 Andrew Frezell <dfrezell@speakeasy.net>
+	- Start of doing the Changelog and other notes.

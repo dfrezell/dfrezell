@@ -1,0 +1,58 @@
+0.0.5
+    It's been a long time since I updated the program.  I'm doing a small
+    update.  The biggest difference is the removal of the images and the use
+    of my own custom font.  This will give a standard look across platforms
+    and allow for faster loading times.  I also changed the name from
+    "Romaji" to "Romanji".  I'm not sure which one is correct, but I'm going
+    with romanji, since I see that used more often.
+    ADDED:
+        - Now show progress bar to indicate how many characters are left.
+    FIXED:
+        - Use my own font, so I don't have to search the system for a compatible
+        font, this is a plus since the app will load faster and the file size is
+        smaller.
+        - Changed the Color.XXX references to Color.xxx.  This caused problems
+        with systems running < Java 1.4.x.  I wish there was a way to say which
+        java to use in the MANIFEST.MF file, but I found nothing.
+    KNOWN ISSUES:
+        - same as 0.0.2, still no stat tracking.  I'm so lazy.
+0.0.4
+	Trying to make the app work with versions less than 1.4.  Not able
+	to test very well, but it's coming along.  Added a catch all exception
+	around the main app, I put up a dialog and print out the stack trace.
+	This should help with finding problems.
+	FIXED:
+		- Put check in PrefManager to look for 1.4 specific stuff.
+		also did this in other areas, but I don't think I've got
+		everything yet.
+		- Error message posted if application fails in some way.
+		Log is printed out in home directory, message asks user to
+		email the log.
+	KNOWN ISSUES:
+		- Still the same as 0.0.2
+0.0.3
+	Changed the name of the application to JKana Test, in order to reduce
+	confusion with the original program, Kana Test.  You can find the original
+	GTK+ application here: http://clay.ll.pl/kanatest.html
+	FIXED:
+		- Build script now deletes image directory from classes.
+		- Kana Test strings changed to JKana Test.
+	KNOWN ISSUES:
+		- Still the same as 0.0.2
+0.0.2
+	"Official" release.  Should be stable enough to use.  Has base fuctionality
+	and works as intended.
+	FIXED:
+		- RandomLib is initialized with mod'd seed values, so the order of
+		  characters changes each time.
+		- Took out nulling font, I was testing bitmap font support if
+		  the application fails to find any Japanese font's on the system.
+	KNOWN ISSUES:
+		- Stat tracking is not enabled, it will print out times on the
+		  console, but nothing for the user.
+		- The repeat wrong answer's currently not enabled...it does nothing
+		- Repeat wrong answer's checkbox should be disabled during the test.
+
+0.0.1
+	Pre release, still had debug code in there for bitmap font support.
+	Quickly updated to next version.

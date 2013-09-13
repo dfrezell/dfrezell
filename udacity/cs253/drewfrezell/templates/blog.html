@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>emiware.com</title>
+		<link rel="stylesheet" type="text/css" media="all" href="/styles/style.css" />
+		<!-- This site is using 2010 Weaver V1.5.4 subtheme: My Saved Theme -->
+		<link rel="stylesheet" type="text/css" media="all" href="/styles/style-weaver.css" />I
+		<link rel="stylesheet" href="/styles/jwzblog.css" type="text/css" />
+		<!-- End of Weaver options -->
+	</head>
+
+	<body class="home blog custom-background">
+		<div id="wrapper" class="hfeed">
+			<div id="header">
+				<div id="masthead">
+					<div id="branding" role="banner">
+						<div id="access" role="navigation">
+							<div class="menu-header">
+								<ul id="menu-nav" class="menu">
+									<li id="menu-item-13242420" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-13242420"><a href="/blog/">Home</a></li>
+									<li id="menu-item-13242422" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13242422"><a href="/about.html">About Me</a></li>
+									<li id="menu-item-13242470" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13242470"><a href="/blog/about/">About This Blog</a></li>
+								</ul>
+							</div>
+						</div><!-- #access -->
+					</div><!-- #branding -->
+				</div><!-- #masthead -->
+			</div><!-- #header -->
+
+
+			<div id="main">
+				<div id="container">
+					<div id="content" role="main">
+
+						{% for blog in blogs %}
+						<div id="post-{{blog.key().id()}}" class="post-{{blog.key().id()}} post type-post status-publish format-standard hentry category-uncategorized">
+							<h2 class="entry-title"><a href="/blog/{{blog.key().id()}}" title="Permalink to {{blog.subject}}" rel="bookmark">{{blog.subject}}</a></h2>
+
+							<div class="entry-meta">
+								<a href="/blog/{{blog.key().id()}}" title="{{blog.created.strftime('%I:%M %p UTC')}}" rel="bookmark"><span class="entry-date">{{blog.created.strftime('%d %b %Y')}}</span></a>
+							</div><!-- .entry-meta -->
+
+							<div class="entry-content">
+								{{blog.content}}
+							</div><!-- .entry-content -->
+
+							<div class="entry-utility">
+								<!-- things can go in here, comments and tags -->
+							</div><!-- .entry-utility -->
+						</div><!-- #post-## -->
+						{% endfor %}
+
+
+						<div id="nav-below" class="navigation">
+							<div class="nav-previous">
+								{% if older %}
+								<a href="/blog/prev/"><span class="meta-nav">&larr;</span> Older posts</a>
+								{% endif %}
+							</div>
+							<div class="nav-next">
+								{% if newer %}
+								<a href="/blog/next/"><span class="meta-nav">&rarr;</span> Newer posts</a>
+								{% endif %}
+							</div>
+						</div><!-- #nav-below -->
+					</div><!-- #content -->
+				</div><!-- #container -->
+
+				<div id="primary" class="widget-area" role="complementary">
+					<ul class="xoxo">
+						<li id="archives-2" class="widget-container widget_archive"><h3 class="widget-title">Archives</h3>
+						<ul>
+							{% for archive in archives %}
+							<li><a href='{{archive.link}}' title='{{archive.title}}'>{{archive.title}}</a>&nbsp;({{archive.count}})</li>
+							{% endfor %}
+						</ul>
+						</li>
+					</ul>
+				</div><!-- #primary .widget-area -->
+
+			</div><!-- #main -->
+		</div><!-- #wrapper -->
+	</body>
+</html>

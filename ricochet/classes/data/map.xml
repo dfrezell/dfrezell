@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<map>
+    <panel id="1a">
+        <symbol shape="triangle" color="blue" location="3"/>
+        <symbol shape="square" color="red" location="22"/>
+        <symbol shape="hexagon" color="green" location="42"/>
+        <symbol shape="circle" color="yellow" location="41"/>
+        <wall position="right" location="2"/>
+        <wall position="bottom" location="3"/>
+        <wall position="bottom" location="7"/>
+        <wall position="bottom" location="14"/>
+        <wall position="right" location="22"/>
+        <wall position="bottom" location="34"/>
+        <wall position="bottom" location="41"/>
+        <wall position="right" location="41"/>
+        <wall position="right" location="60"/>
+        <rebound direction="left" color="red" location="24"/>
+        <rebound direction="right" color="blue" location="53"/>
+    </panel>
+    <panel id="1b">
+        <symbol shape="triangle" color="blue" location="34"/>
+        <symbol shape="square" color="red" location="29"/>
+        <symbol shape="hexagon" color="green" location="19"/>
+        <symbol shape="circle" color="yellow" location="44"/>
+        <wall position="bottom" location="11"/>
+        <wall position="right" location="18"/>
+        <wall position="bottom" location="26"/>
+        <wall position="right" location="28"/>
+        <wall position="bottom" location="29"/>
+        <wall position="bottom" location="31"/>
+        <wall position="right" location="34"/>
+        <wall position="bottom" location="44"/>
+        <wall position="right" location="44"/>
+        <wall position="right" location="57"/>
+    </panel>
+    <panel id="2a">
+        <symbol shape="triangle" color="yellow" location="41"/>
+        <symbol shape="square" color="green" location="36"/>
+        <symbol shape="hexagon" color="red" location="22"/>
+        <symbol shape="circle" color="blue" location="37"/>
+        <symbol shape="swirl" color="multi" location="2"/>
+        <wall position="right" location="1"/>
+        <wall position="top" location="2"/>
+        <wall position="bottom" location="7"/>
+        <wall position="bottom" location="14"/>
+        <wall position="right" location="21"/>
+        <wall position="bottom" location="28"/>
+        <wall position="right" location="36"/>
+        <wall position="bottom" location="37"/>
+        <wall position="bottom" location="41"/>
+        <wall position="right" location="41"/>
+        <wall position="right" location="58"/>
+        <rebound direction="left" color="green" location="12"/>
+        <rebound direction="left" color="red" location="53"/>
+    </panel>
+    <panel id="2b">
+        <symbol shape="triangle" color="yellow" location="14"/>
+        <symbol shape="square" color="green" location="17"/>
+        <symbol shape="hexagon" color="red" location="28"/>
+        <symbol shape="circle" color="blue" location="50"/>
+        <symbol shape="swirl" color="multi" location="40"/>
+        <wall position="right" location="13"/>
+        <wall position="bottom" location="14"/>
+        <wall position="bottom" location="14"/>
+        <wall position="right" location="17"/>
+        <wall position="bottom" location="20"/>
+        <wall position="right" location="27"/>
+        <wall position="bottom" location="31"/>
+        <wall position="bottom" location="32"/>
+        <wall position="left" location="40"/>
+        <wall position="bottom" location="42"/>
+        <wall position="right" location="50"/>
+        <wall position="right" location="60"/>
+    </panel>
+    <panel id="3a">
+        <symbol shape="triangle" color="green" location="13"/>
+        <symbol shape="square" color="blue" location="12"/>
+        <symbol shape="hexagon" color="yellow" location="25"/>
+        <symbol shape="circle" color="red" location="38"/>
+        <wall position="bottom" location="4"/>
+        <wall position="right" location="12"/>
+        <wall position="bottom" location="13"/>
+        <wall position="bottom" location="15"/>
+        <wall position="bottom" location="17"/>
+        <wall position="right" location="24"/>
+        <wall position="bottom" location="38"/>
+        <wall position="right" location="38"/>
+        <wall position="right" location="57"/>
+        <rebound direction="left" color="yellow" location="2"/>
+        <rebound direction="right" color="green" location="51"/>
+    </panel>
+    <panel id="3b">
+        <symbol shape="triangle" color="green" location="52"/>
+        <symbol shape="square" color="blue" location="11"/>
+        <symbol shape="hexagon" color="yellow" location="33"/>
+        <symbol shape="circle" color="red" location="30"/>
+        <wall position="bottom" location="7"/>
+        <wall position="right" location="10"/>
+        <wall position="bottom" location="11"/>
+        <wall position="bottom" location="22"/>
+        <wall position="bottom" location="25"/>
+        <wall position="right" location="30"/>
+        <wall position="right" location="32"/>
+        <wall position="bottom" location="52"/>
+        <wall position="right" location="52"/>
+        <wall position="right" location="61"/>
+    </panel>
+    <panel id="4a">
+        <symbol shape="triangle" color="red" location="28"/>
+        <symbol shape="square" color="yellow" location="10"/>
+        <symbol shape="hexagon" color="blue" location="41"/>
+        <symbol shape="circle" color="green" location="29"/>
+        <wall position="bottom" location="10"/>
+        <wall position="right" location="10"/>
+        <wall position="bottom" location="20"/>
+        <wall position="right" location="28"/>
+        <wall position="bottom" location="29"/>
+        <wall position="bottom" location="33"/>
+        <wall position="bottom" location="39"/>
+        <wall position="right" location="40"/>
+        <wall position="right" location="58"/>
+        <rebound direction="left" color="yellow" location="33"/>
+        <rebound direction="left" color="blue" location="51"/>
+    </panel>
+    <panel id="4b">
+        <symbol shape="triangle" color="red" location="38"/>
+        <symbol shape="square" color="yellow" location="18"/>
+        <symbol shape="hexagon" color="blue" location="12"/>
+        <symbol shape="circle" color="green" location="51"/>
+        <wall position="bottom" location="4"/>
+        <wall position="right" location="11"/>
+        <wall position="bottom" location="15"/>
+        <wall position="bottom" location="18"/>
+        <wall position="right" location="18"/>
+        <wall position="bottom" location="30"/>
+        <wall position="right" location="38"/>
+        <wall position="right" location="50"/>
+        <wall position="bottom" location="51"/>
+        <wall position="right" location="61"/>
+    </panel>
+</map>

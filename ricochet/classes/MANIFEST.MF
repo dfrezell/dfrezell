@@ -1,0 +1,6 @@
+Main-Class: org.frezell.ricochet.RicochetRobots
+Implementation-Title: Ricochet Robots
+Implementation-Version: 0.0.1
+Implementation-Vendor: Drew Frezell
+Implementation-URL: http://www.frezell.org/ricochet
+

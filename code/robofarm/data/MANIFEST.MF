@@ -1,0 +1,7 @@
+Main-Class: org.frezell.robofarm.RoboFarm
+Class-Path: util.jar
+Implementation-Title: RoboFarm
+Implementation-Version: 0.0.1
+Implementation-Vendor: Drew Frezell
+Implementation-URL: http://www.frezell.org/robofarm/
+

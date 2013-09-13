@@ -1,0 +1,46 @@
+# dd-mm-yyyy name <email>
+06-06-2004 Andrew Frezell <dfrezell@speakeasy.net>
+	- Changed Kana class to hold the hiragana, katakana, and romaji list for
+	each element.  Instead of matching arrays, there is now an object for
+	each character.  The characters are parsed from an XML file, which should
+	make the program much more extensible...even able to flashcard test
+	kanji.
+	- The main class JKanaTest had to change to support an array of Kana
+	objects.
+16-05-2004 Andrew Frezell <dfrezell@speakeasy.net>
+    - Change name of "Romanji" back to "Romaji", I found out the latter is
+    really correct.
+    - Added a GraphicsUtil to find the center point offset for an app window,
+    this was done do support various versions of java.
+    - Add beginnings of stat tracking support.  Instead of using the weird array
+    thing, a seperate class keeps track of the right and wrong answers.
+    - Add reshuffling method to support repeating wrong answers.
+
+10-05-2004 Andrew Frezell <dfrezell@speakeasy.net>
+    - Use my own font instead of trying to find a system font to load, this
+    gives uniform look on all platforms
+    - Change all Color.XXX to Color.xxx to support versions of Java less than
+    1.4.x
+    - Change name of "Romaji" to "Romanji" in the code and for text.
+    - Update to the correct version:  0.0.5
+    - Remove image support, since we use our own font.
+    - Added progress bar to indicate how many characters left.
+    - Start construction of Stats panel.
+
+21-08-2003 Andrew Frezell <dfrezell@speakeasy.net>
+	- Changed the build script so that debug lines are in stack traces.
+	- PrefManager checks for Java 1.4, if it doesn't find it then returns
+	all default values.
+	- Removing 1.4 dependencies in the main code, slow process, need to
+	find a better way to test.
+
+09-08-2003 Andrew Frezell <dfrezell@speakeasy.net>
+	Change the name of the Application to JKana Test.  I'm updating
+	all the strings, so hopefully I find them all.
+
+08-08-2003 Andrew Frezell <dfrezell@speakeasy.net>
+	Change build script to delete the img directory from classes
+
+07-08-2003 Andrew Frezell <dfrezell@speakeasy.net>
+	Initial public release.
+

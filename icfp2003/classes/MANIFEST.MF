@@ -1,0 +1,6 @@
+Main-Class: org.frezell.icfp.viewer.TrackViewer
+Implementation-Title: ICFP Track Viewer
+Implementation-Version: 0.0.1
+Implementation-Vendor: Drew Frezell
+Implementation-URL: http://www.frezell.org/icfp/
+

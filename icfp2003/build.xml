@@ -1,0 +1,41 @@
+<project name="Track Viewer" default="dist" basedir=".">
+    <description>
+        GUI control for playing viewing the ICFP track files and playing back
+        traces.
+    </description>
+    <property name="src" location="src"/>
+    <property name="build" location="classes"/>
+    <property name="dist" location="dist"/>
+    <property name="images" location="img"/>
+
+    <target name="init">
+        <!-- Create the time stamp -->
+        <tstamp/>
+        <!-- Create the build directory structure used by compile -->
+        <mkdir dir="${build}"/>
+        <mkdir dir="${dist}"/>
+    </target>
+
+    <target name="resource" description="copy resources necessary for application">
+        <copy todir="${build}/org/frezell/icfp/img/">
+            <fileset dir="${images}"/>
+        </copy>
+    </target>
+
+    <target name="compile" depends="init, resource" description="compile the source " >
+        <!-- Compile the java code from ${src} into ${build} -->
+        <javac srcdir="${src}" destdir="${build}"/>
+    </target>
+
+    <target name="dist" depends="compile" description="generate the distribution" >
+        <!-- Put everything in ${build} into the trackview.jar file -->
+        <jar jarfile="${dist}/trackview.jar" manifest="${build}/MANIFEST.MF"
+            basedir="${build}"/>
+    </target>
+
+    <target name="clean" description="clean up" >
+        <!-- Delete the ${build} and ${dist} directory trees -->
+        <delete dir="${build}/org"/>
+        <delete dir="${dist}"/>
+    </target>
+</project>

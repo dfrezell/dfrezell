@@ -1,0 +1,39 @@
+<project name="JKana Test" default="dist" basedir=".">
+    <description>
+		Kana flashcard testing application.
+    </description>
+    <property name="appname" value="jkanatest"/>
+    <property name="src" value="src"/>
+    <property name="build" value="classes"/>
+    <property name="dist" value="dist"/>
+    <property name="images" value="img"/>
+    <property name="fonts" value="font"/>
+
+    <target name="init">
+        <!-- Create the time stamp -->
+        <tstamp/>
+        <!-- Create the build directory structure used by compile -->
+        <mkdir dir="${build}"/>
+        <mkdir dir="${dist}"/>
+    </target>
+    <target name="resource" description="copy resources necessary for application">
+        <copy file="${fonts}/OpenKana.ttf" todir="${build}/${fonts}"/>
+        <copy file="${fonts}/kanalist.xml" todir="${build}/${fonts}"/>
+    </target>
+    <target name="compile" depends="init, resource" description="compile the source ">
+        <!-- Compile the java code from ${src} into ${build} -->
+        <javac debug="true" srcdir="${src}" destdir="${build}"/>
+    </target>
+    <target name="dist" depends="compile" description="generate the distribution">
+        <!-- Put everything in ${build} into the trackview.jar file -->
+        <jar jarfile="${dist}/${appname}.jar" manifest="${build}/MANIFEST.MF"
+            basedir="${build}" excludes="MANIFEST.MF,README"/>
+    </target>
+    <target name="clean" description="clean up">
+        <!-- Delete the ${build} and ${dist} directory trees -->
+        <delete dir="${build}/org"/>
+        <delete dir="${build}/${images}"/>
+        <delete dir="${build}/${fonts}"/>
+        <delete dir="${dist}"/>
+    </target>
+</project>

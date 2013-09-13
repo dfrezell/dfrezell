@@ -1,0 +1,38 @@
+<form>
+	<label>One <input type="radio" name="q" value="one"></label>
+	<label>Two <input type="radio" name="q" value="two"></label>
+	<label>Three <input type="radio" name="q" value="three"></label>
+	<br>
+	<input type="submit">
+</form>
+<form>
+	<select name="r">
+		<option value="1">the number one</option>
+		<option value="2">the number two</option>
+		<option value="3">the number three</option>
+	</select>
+	<br>
+	<input type="submit">
+	<br>
+	<script>
+		function gcd(a, b) {
+			if (a == b) {
+				return a;
+			} else if (a > b) {
+				return gcd(a-b, b);
+			} else if (a < b) {
+				return gcd(a, b-a);
+			}
+		}
+		document.write(gcd(24, 8));
+		document.write(" ");
+		document.write(gcd(1362, 1407));
+		document.write(" ");
+		document.write(gcd(1875, 1907));
+		document.write(" ");
+		document.write(gcd(45, 116));
+		document.write(" ");
+		document.write(gcd(50, 500));
+		document.write(" ");
+	</script>
+</form>

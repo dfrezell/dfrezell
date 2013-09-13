@@ -1,0 +1,18 @@
+
+Authors
+--------
+Andrew Frezell <dfrezell@speakeasy.net>
+
+Borrowed idea
+-------------
+Tomasz M±ka	<pasp@ll.pl>
+Maja Kocoñ	<ironya@poczta.fm>
+Piotr M±ka	<sill@members.com.pl>
+
+
+Borrowed code
+--------------
+Uniform random number generator (randomlib.[ch])
+	- http://astronomy.swin.edu.au/~pbourke/analysis/random/
+
+

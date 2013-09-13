@@ -1,0 +1,8 @@
+0.1
+	First pass, draws the board and let's you move robot's around.
+	ADDED:
+    FIXED:
+    KNOWN ISSUES:
+        - PNG image loading takes too much time on jdk 1.4, 1.5 is much faster
+        but still in beta.  Thinking about using jpg's if the version of java
+        is < 1.5.

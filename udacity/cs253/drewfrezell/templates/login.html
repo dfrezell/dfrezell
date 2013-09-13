@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>login</title>
+		<style type="text/css">
+			body {
+				font-family: sans-serif;
+				width: 800px;
+				margin: 0 auto;
+				padding: 10px;
+			}
+			.error {
+				color: red;
+			}
+			.form label {
+				width:7.5em;
+				float:left;
+				display:block;
+				margin-right:0.5em;
+				text-align:right;
+				font-size: 20px;
+			}
+			.form .submit input {
+				margin-left:6.5em;
+			}
+			.form input[type=text] {
+				width: 350px;
+				font-size: 20px;
+			}
+			.form input[type=password] {
+				width: 350px;
+				font-size: 20px;
+			}
+		</style>
+	</head>
+
+    <body>
+		<h3>CS253: Unit 4 - Login</h3>
+		<form class="form" method="post">
+			<p>
+			<label>Username</label>
+			<input type="text" value="{{user}}" name="username">
+			</p>
+			<p>
+			<label>Password</label>
+			<input type="password" value="" name="password">
+			</p>
+			<p class="submit"><input type="submit"></p>
+		</form>
+		<div class="error">{{error}}</div>
+    </body>
+</html>

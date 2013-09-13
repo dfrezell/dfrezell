@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf8"?>
+<!--
+
+build.xml
+
+Developed by Drew Frezell
+
+-->
+
+<project name="jcircuit" default="dist" basedir=".">
+	<description>
+		simple build for jcircuit
+	</description>
+	<property name="src" location="src"/>
+	<property name="data" location="data"/>
+	<property name="build" location="build"/>
+	<property name="dist" location="dist"/>
+
+	<target name="init">
+		<tstamp/>
+		<mkdir dir="${build}"/>
+	</target>
+
+	<target name="compile" depends="init" description="compile the source">
+		<javac srcdir="${src}" destdir="${build}"/>
+		<copy file="${data}/setuplist.txt" todir="${build}"/>
+		<copy todir="${build}/circuits">
+			<fileset dir="${data}/circuits"/>
+		</copy>
+	</target>
+
+	<target name="dist" depends="compile" description="">
+		<mkdir dir="${dist}/lib"/>
+		<jar jarfile="${dist}/lib/jcircuit.jar" basedir="${build}">
+			<manifest>
+				<attribute name="Main-Class" value="Circuit"/>
+			</manifest>
+		</jar>
+	</target>
+
+	<target name="clean" description="cleanup">
+		<delete dir="${build}"/>
+		<delete dir="${dist}"/>
+	</target>
+</project>

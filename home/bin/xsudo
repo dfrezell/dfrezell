@@ -1,0 +1,25 @@
+#!/bin/bash
+# xsudo : quick and dirty hack to allow sudo to display to my X11 server
+
+function exit_handler()
+{
+	echo "$0 [ERROR] : $1"
+	exit -1
+}
+
+XSUDO_TMPFILE=`mktemp -qp /tmp/` || exit_handler "Unable to create tmpfile"
+
+if [ ! -f "$XAUTHORITY" ]; then
+	XAUTHORITY=$HOME/.Xauthority
+fi
+
+if [ ! -f "$XAUTHORITY" ]; then
+	rm $XSUDO_TMPFILE
+	exit_handler "Missing $HOME/.Xauthority file."
+fi
+
+chmod 600 $XSUDO_TMPFILE
+cat $XAUTHORITY > $XSUDO_TMPFILE
+XAUTHORITY=$XSUDO_TMPFILE sudo $@
+rm $XSUDO_TMPFILE
+

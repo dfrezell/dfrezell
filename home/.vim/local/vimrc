@@ -1,0 +1,3 @@
+let g:author="Drew Frezell"
+let g:email="dfrezell@yahoo.com"
+let g:company = "Emiware LLC"
