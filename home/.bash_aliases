@@ -1,5 +1,5 @@
 #!/bin/bash
-alias ls='ls -F --color=auto'
+alias ls='ls -FG'
 alias ll='ls -la'
 alias la='ls -A'
 alias l='ls -CF'

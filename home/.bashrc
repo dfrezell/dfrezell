@@ -1,6 +1,3 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
 
 # prompt function
 function prompt_setup
@@ -25,22 +22,21 @@ function prompt_setup
 	local BUNK="\[\033[0;37m\]"
 	local RST="\[\033[0m\]"
 
-	#let fillsize=${COLUMNS}-${#pprompt}
-	#if [ "$fillsize" -lt "0" ]; then
-	#	let cut=4-${fillsize}
-	#	newPWD="...${PWD:${cut}}"
-	#else
-	#	newPWD=${PWD}
-	#fi
-
-	PS1="$BGRN\u$RST@$BGRN\h$RST:$BBLU\w$GRAY:\n$BRED[\$?]$RST$ "
-	PS2="> "
-
+    PS1="$BGRN\u$RST@$BGRN\h$RST:$BBLU\w$GRAY:\n$BRED[\$?]$RST$ "
+    PS2="> "
 }
-
 
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
+
+# add our home bin directory to path if it's not
+# already in the path
+if [[ ":$PATH:" != *":$HOME/bin:"* ]]; then
+	export PATH=$HOME/bin:$PATH
+fi
+
+# set default editor to vim
+export EDITOR=vim
 
 # don't put duplicate lines in the history. See bash(1) for more options
 export HISTCONTROL=ignoredups
@@ -60,24 +56,6 @@ prompt_setup
 # enable core dumps for crashes
 ulimit -c unlimited
 
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
 if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+    source ~/.bash_aliases
 fi
-
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
-if [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
-fi
-
-# create a list of variables for directories to use for 'shopt cdable_vars'
-shopt -s cdable_vars
-Dp4ws="/var/localdata/afrezell/p4ws"
-Dcentmain="$Dp4ws/Centaur/base-branch/main"
-
