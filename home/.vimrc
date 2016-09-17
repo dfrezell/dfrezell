@@ -4,28 +4,24 @@
 "
 " Settings
 
-" To be secure & Vi nocompatible
+" script syntax compatible with early pre-6.0 vim
+" exit early if detected
 :set secure nocompatible
 :if version < 600
 :	echo "Don't know anything about vim prior to 6.0"
 :	finish
 :endif
 
-:if version >= 600 
+execute pathogen#infect()
+
 syntax enable
 filetype on
 filetype plugin on
 filetype indent on
-:endif
 
-function! Source(File)
-	silent! execute "source " . a:File
-endfunction
-
-call Source("~/.vim/local/vimrc")
-
-" used for searching documentation (~/.vim/doc/FEATURES.txt) etc.
-set runtimepath+=~/.vim
+if filereadable(expand("~/.vim/local/vimrc"))
+	source ~/.vim/local/vimrc
+endif
 
 " Settings for C language
 let c_gnu=1
@@ -191,7 +187,7 @@ set noerrorbells
 set visualbell
 set t_vb=
 
-set gfn=Bitstream\ Vera\ Sans\ Mono\ 12
+set gfn="Inconsolata 12"
 
 " Set this, if you will open all windows for files specified
 " on the commandline at vim startup.
@@ -401,77 +397,69 @@ endfunction
 " Autocomands
 if has("autocmd")
 
-" UGLY hack - preload templatefile.vim. This is needed for loading templates
-" for all buffers (when opening all windows for buffers)
-call Source("~/.vim/plugin/templatefile.vim")
-augroup TemplateSystem
+" Autocomands for GUIEnter
+augroup GUIEnter
 	autocmd!
-	au BufNewFile * call LoadTemplateFile()
+	if has("gui_win32")
+		autocmd GUIEnter * simalt ~x
+	endif
 augroup END
 
-	" Autocomands for GUIEnter
-	augroup GUIEnter
-		autocmd!
-		if has("gui_win32")
-			autocmd GUIEnter * simalt ~x
-		endif
-	augroup END
+" Autocomands for ~/.vimrc
+augroup VimConfig
+	autocmd!
+	" Reread configuration of ViM if file ~/.vimrc is saved
+	autocmd BufWritePost ~/.vimrc	so ~/.vimrc | exec "normal zv"
+	autocmd BufWritePost vimrc   	so ~/.vimrc | exec "normal zv"
+augroup END
 
-	" Autocomands for ~/.vimrc
-	augroup VimConfig
-		autocmd!
-		" Reread configuration of ViM if file ~/.vimrc is saved
-		autocmd BufWritePost ~/.vimrc	so ~/.vimrc | exec "normal zv"
-		autocmd BufWritePost vimrc   	so ~/.vimrc | exec "normal zv"
-	augroup END
+" Autocommands for *.c, *.h, *.cc *.cpp
+augroup C
+	autocmd!
+	autocmd BufEnter     *.c,*.h,*.cc,*.cpp	map  <buffer> <C-F> mfggvG$='f
+	autocmd BufEnter     *.c,*.h,*.cc,*.cpp	imap <buffer> <C-F> <Esc>mfggvG$='fi
+	autocmd BufEnter     *.c,*.h,*.cc,*.cpp	map <buffer> yii yyp3wdwi
+	autocmd BufRead,BufNewFile  *.c,*.h,*.cc,*.cpp	setlocal expandtab 
+	autocmd BufRead,BufNewFile  *.c,*.h,*.cc,*.cpp	setlocal cindent
+	autocmd BufRead,BufNewFile  *.c,*.h,*.cc,*.cpp	setlocal cinoptions=>4,e0,n0,f0,{0,}0,^0,:4,=4,p4,t4,c3,+4,(2s,u1s,)20,*30,g4,h4
+	autocmd BufRead,BufNewFile  *.c,*.h,*.cc,*.cpp	setlocal cinkeys=0{,0},:,0#,!<C-F>,o,O,e
+augroup END
 
-	" Autocommands for *.c, *.h, *.cc *.cpp
-	augroup C
-		autocmd!
-		autocmd BufEnter     *.c,*.h,*.cc,*.cpp	map  <buffer> <C-F> mfggvG$='f
-		autocmd BufEnter     *.c,*.h,*.cc,*.cpp	imap <buffer> <C-F> <Esc>mfggvG$='fi
-		autocmd BufEnter     *.c,*.h,*.cc,*.cpp	map <buffer> yii yyp3wdwi
-		autocmd BufRead,BufNewFile  *.c,*.h,*.cc,*.cpp	setlocal expandtab 
-		autocmd BufRead,BufNewFile  *.c,*.h,*.cc,*.cpp	setlocal cindent
-		autocmd BufRead,BufNewFile  *.c,*.h,*.cc,*.cpp	setlocal cinoptions=>4,e0,n0,f0,{0,}0,^0,:4,=4,p4,t4,c3,+4,(2s,u1s,)20,*30,g4,h4
-		autocmd BufRead,BufNewFile  *.c,*.h,*.cc,*.cpp	setlocal cinkeys=0{,0},:,0#,!<C-F>,o,O,e
-	augroup END
+" Autocommands for *.py
+augroup Python
+	autocmd!
+	autocmd BufRead,BufNewFile *.py setlocal encoding=utf8
+	"autocmd BufRead,BufNewFile *.py setlocal paste
+	autocmd BufRead,BufNewFile *.py setlocal expandtab
+	autocmd BufRead,BufNewFile *.py setlocal textwidth=0
+	autocmd BufRead,BufNewFile *.py setlocal autoindent
+	autocmd BufRead,BufNewFile *.py setlocal backspace=indent,eol,start
+	autocmd BufRead,BufNewFile *.py setlocal ruler
+	autocmd BufRead,BufNewFile *.py setlocal commentstring=\ #\ %s
+	autocmd BufRead,BufNewFile *.py setlocal foldlevel=0
+	autocmd BufRead,BufNewFile *.py setlocal clipboard+=unnamed
+augroup END
 
-	" Autocommands for *.py
-	augroup Python
-		autocmd!
-		autocmd BufRead,BufNewFile *.py setlocal encoding=utf8
-		"autocmd BufRead,BufNewFile *.py setlocal paste
-		autocmd BufRead,BufNewFile *.py setlocal expandtab
-		autocmd BufRead,BufNewFile *.py setlocal textwidth=0
-		autocmd BufRead,BufNewFile *.py setlocal autoindent
-		autocmd BufRead,BufNewFile *.py setlocal backspace=indent,eol,start
-		autocmd BufRead,BufNewFile *.py setlocal ruler
-		autocmd BufRead,BufNewFile *.py setlocal commentstring=\ #\ %s
-		autocmd BufRead,BufNewFile *.py setlocal foldlevel=0
-		autocmd BufRead,BufNewFile *.py setlocal clipboard+=unnamed
-	augroup END
+" Autocommands for *.html *.cgi
+" Automatic updates date of last modification in HTML files. File must
+" contain line "^\([<space><Tab>]*\)Last modified: ",
+" else will be date writtend on the current " line.
+augroup HtmlCgiPHP
+	autocmd!
+	autocmd BufEnter                 *.html	imap <buffer> QQ </><Esc>2F<lywf>f/pF<i
+	autocmd BufWritePre,FileWritePre *.html	call AutoLastMod()
+	autocmd BufEnter                 *.cgi	imap <buffer> QQ </><Esc>2F<lywf>f/pF<i
+	autocmd BufWritePre,FileWritePre *.cgi	call AutoLastMod()
+	autocmd BufEnter                 *.php	imap <buffer> QQ </><Esc>2F<lywf>f/pF<i
+	autocmd BufWritePre,FileWritePre *.php	call AutoLastMod()
+	autocmd BufEnter                 *.php3	imap <buffer> QQ </><Esc>2F<lywf>f/pF<i
+	autocmd BufWritePre,FileWritePre *.php3	call AutoLastMod()
+augroup END
 
-	" Autocommands for *.html *.cgi
-	" Automatic updates date of last modification in HTML files. File must
-	" contain line "^\([<space><Tab>]*\)Last modified: ",
-	" else will be date writtend on the current " line.
-	augroup HtmlCgiPHP
-		autocmd!
-		autocmd BufEnter                 *.html	imap <buffer> QQ </><Esc>2F<lywf>f/pF<i
-		autocmd BufWritePre,FileWritePre *.html	call AutoLastMod()
-		autocmd BufEnter                 *.cgi	imap <buffer> QQ </><Esc>2F<lywf>f/pF<i
-		autocmd BufWritePre,FileWritePre *.cgi	call AutoLastMod()
-		autocmd BufEnter                 *.php	imap <buffer> QQ </><Esc>2F<lywf>f/pF<i
-		autocmd BufWritePre,FileWritePre *.php	call AutoLastMod()
-		autocmd BufEnter                 *.php3	imap <buffer> QQ </><Esc>2F<lywf>f/pF<i
-		autocmd BufWritePre,FileWritePre *.php3	call AutoLastMod()
-	augroup END
-
-	" Autocomands for *.txt
-	augroup Txt
+" Autocomands for *.txt
+augroup Txt
 	autocmd BufNewFile,BufRead  *.txt   setf txt
-	augroup END
+augroup END
 
 endif " if has("autocmd")
 
@@ -488,7 +476,8 @@ if exists("g:open_all_win")
 endif
 
 " i use a black background for my terminal
-set background=dark
+set background=light
+colorscheme solarized
 
 " Modeline
 " vim:set ts=4:

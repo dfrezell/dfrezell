@@ -1,3 +1,4 @@
+let g:VIMFILESDIR="~/.vim/"
 let g:author="Drew Frezell"
-let g:email="dfrezell@yahoo.com"
-let g:company = "Emiware LLC"
+let g:email="dfrezell@gmail.com"
+let g:webpage="www.frezell.org"

@@ -1,5 +1,5 @@
 /*
- * @FILE_EXT@
+ * @FILENAME@
  *
  * Developed by @AUTHOR@
  *
@@ -9,7 +9,6 @@
 
 int main(int argc, char *argv[])
 {
+    @CURSOR@
     return 0;
 }
-
-/* vim: set ts=4: */
