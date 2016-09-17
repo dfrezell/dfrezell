@@ -1,0 +1,6 @@
+[submodule "home/.vim/bundle/vim-skeleton"]
+	path = home/.vim/bundle/vim-skeleton
+	url = git@github.com:dfrezell/vim-skeleton.git
+[submodule "home/.vim/bundle/nerdtree"]
+	path = home/.vim/bundle/nerdtree
+	url = git@github.com:dfrezell/nerdtree.git
