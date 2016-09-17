@@ -1,4 +1,3 @@
-#!/bin/bash
 alias ls='ls -FG'
 alias ll='ls -la'
 alias la='ls -A'
