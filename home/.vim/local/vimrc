@@ -1,4 +1,28 @@
 let g:VIMFILESDIR="~/.vim/"
 let g:author="Drew Frezell"
 let g:email="dfrezell@gmail.com"
-let g:webpage="www.frezell.org"
+let g:webpage="http://www.frezell.org"
+
+let g:skeleton_replacements = {}
+
+function! g:skeleton_replacements.AUTHOR(filename)
+	return g:author
+endfunction
+
+function! g:skeleton_replacements.EMAIL(filename)
+	return g:email
+endfunction
+
+function! g:skeleton_replacements.WEBPAGE(filename)
+	return g:webpage
+endfunction
+
+function! g:skeleton_replacements.UPBASENAME(filename)
+	let upbasename = toupper(fnamemodify(a:filename, ':t:r'))
+	return upbasename
+endfunction
+
+function! g:skeleton_replacements.LOBASENAME(filename)
+	let upbasename = tolower(fnamemodify(a:filename, ':t:r'))
+	return upbasename
+endfunction

@@ -479,6 +479,3 @@ endif
 set background=light
 colorscheme solarized
 
-" Modeline
-" vim:set ts=4:
-

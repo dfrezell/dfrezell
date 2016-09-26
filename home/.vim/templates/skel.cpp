@@ -1,9 +1,8 @@
 /*
- * @FILE_EXT@
+ * @FILENAME@
  *
  * Developed by @AUTHOR@
  *
  */
 
-
-// vim: set ts=4:
+@CURSOR@

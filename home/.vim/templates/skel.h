@@ -1,14 +1,13 @@
-
 /*
- * @FILE_EXT@
+ * @FILENAME@
  *
  * Developed by @AUTHOR@
  *
  */
 
-#ifndef @INCLUDE_GAURD@_H
-#  define @INCLUDE_GAURD@_H
+#ifndef @UPBASENAME@_H
+#define @UPBASENAME@_H
 
+@CURSOR@
 
-#endif /* #ifndef @INCLUDE_GAURD@_H */
-
+#endif /* #ifndef @UPBASENAME@_H */
