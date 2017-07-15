@@ -35,6 +35,8 @@ if [[ ":$PATH:" != *":$HOME/bin:"* ]]; then
 	export PATH=$HOME/bin:$PATH
 fi
 
+# set GOPATH
+export GOPATH="${HOME}/Code/golang"
 # set default editor to vim
 export EDITOR=vim
 

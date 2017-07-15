@@ -461,6 +461,10 @@ augroup Txt
 	autocmd BufNewFile,BufRead  *.txt   setf txt
 augroup END
 
+augroup Rust
+	autocmd BufRead,BufNewFile *.rs set filetype=rust
+augroup END
+
 endif " if has("autocmd")
 
 if exists("g:open_all_win")
